@@ -1,0 +1,22 @@
+/* Remove default list styling */
+.title {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 50px;
+}
+.main-menu{
+    padding-top: 24px;
+}
+
+/* Style the list items as buttons */
+.row-btn{
+    display: flex;
+    margin-bottom: 5px;
+    justify-content: center;
+}
+
+.button{
+    width: 140px;
+    height: 38px;
+}
