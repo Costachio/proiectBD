@@ -14,26 +14,26 @@
             <input required type="text" name="denumire" class="form-control" id="denumire">
         </div>
         <div class="mb-3">
-            <label for="nume_administrator" class="form-label">Nume administrator</label>
-            <input required type="text" name="nume_administrator" class="form-control" id="nume_administrator">
+            <label for="administrator" class="form-label">Nume administrator</label>
+            <input required type="text" name="administrator" class="form-control" id="administrator">
         </div>
         <div class="mb-3">
-            <label for="nume_presedinte" class="form-label">Nume presedinte</label>
-            <input required type="text" name="nume_presedinte" class="form-control" id="nume_presedinte">
+            <label for="presedinte" class="form-label">Nume presedinte</label>
+            <input required type="text" name="presedinte" class="form-control" id="presedinte">
         </div>
         <div class="mb-3">
-            <label for="nume_contabil" class="form-label">Nume contabil</label>
-            <input required type="text" name="nume_contabil" class="form-control" id="nume_contabil">
+            <label for="contabil" class="form-label">Nume contabil</label>
+            <input required type="text" name="contabil" class="form-control" id="contabil">
         </div>
         <div class="mb-3">
             <label for="cod_fiscal" class="form-label">Cod fiscal</label>
             <input required type="text" name="cod_fiscal" class="form-control" id="cod_fiscal">
         </div>
         <div class="mb-3">
-            <label for="data_infiintare" class="form-label">Data infiintare ( exemplu format: 20/12/2023 )</label>
+            <label for="data_infiintare" class="form-label">Data infiintare ( exemplu format: 2023-03-01 )</label>
             <input required type="text" name="data_infiintare" class="form-control" id="data_infiintare">
         </div>
-        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="submit" class="btn btn-primary">Trimite</button>
     </form>
 </div>
 </body>
