@@ -48,9 +48,11 @@ foreach ($asociatii as &$asociatie) {
 <body>
 <div class="container">
     <h1>Administreaza asociatiile</h1>
-    <div class="mt-3 mb-3">
-        <a href="add_asociatie_page.php" class="btn btn-primary"><i class="bi bi-plus"></i></a>
+    <div class="mt-3 mb-3 d-flex">
+        <a href="add_asociatie_page.php" class="btn btn-primary me-3"><i class="bi bi-plus"></i></a>
+        <a href="../index.php" class="btn btn-primary"><i class="bi bi-house-fill"></i></a>
     </div>
+
     <table class="table">
         <thead>
         <tr>

@@ -17,7 +17,7 @@
         <li class="row-btn"><a href="Persoane/persoane_page.php" class="btn btn-primary button">Persoane</a></li>
         <li class="row-btn"><a href="Imobile/imobile_page.php" class="btn btn-primary button">Imobile</a></li>
         <li class="row-btn"><a href="Scari/scari_page.php" class="btn btn-primary button">Scari</a></li>
-        <li class="row-btn"><a href="#" class="btn btn-primary button">Apartamente</a></li>
+        <li class="row-btn"><a href="Apartamente/apartamente_page.php" class="btn btn-primary button">Apartamente</a></li>
     </ul>
 </div>
 </body>

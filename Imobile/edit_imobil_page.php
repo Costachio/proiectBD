@@ -24,7 +24,7 @@ $imobil['asociatie'] = $asociatie;
 <body>
 <div class="container">
     <h1>Editeaza imobilul</h1>
-    <form method="post" action="add_imobil_in_database.php">
+    <form method="post" action="edit_imobil_in_database.php">
         <div class="mb-3">
             <label for="denumire" class="form-label">Denumire</label>
             <input required type="text" name="denumire" class="form-control" value="<?php echo $imobil['denumire']?>" id="denumire">

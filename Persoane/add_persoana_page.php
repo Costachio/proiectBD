@@ -20,11 +20,14 @@
         </div>
         <div class="mb-3">
             <label for="sex" class="form-label">Sex</label>
-            <input required type="text" name="sex" class="form-control" id="sex">
+            <select required name="sex" class="form-select" id="sex">
+                <option value="M">M</option>
+                <option value="F">F</option>
+            </select>
         </div>
         <div class="mb-3">
             <label for="email" class="form-label">Email</label>
-            <input required type="text" name="email" class="form-control" id="email">
+            <input required type="email" name="email" class="form-control" id="email">
         </div>
         <div class="mb-3">
             <label for="telefon" class="form-label">Telefon</label>
