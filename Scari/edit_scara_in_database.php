@@ -26,7 +26,7 @@ try {
     ]);
 
     $connection->commit();
-    header("Location: /index.php");
+    header("Location: /Scari/scari_page.php");
 
 } catch (PDOException $e) {
 

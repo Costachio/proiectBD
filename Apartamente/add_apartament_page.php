@@ -1,10 +1,19 @@
+<?php
 
+require_once "../connect.php";
+
+$connection = getConnection();
+$scari = $connection
+    ->query("SELECT id, denumire FROM scari ")
+    ->fetchAll();
+?>
 <!DOCTYPE html>
 <html>
 <head>
     <title>Adauga apartament</title>
     <!-- CSS only -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 </head>
 <body>
 <div class="container">
@@ -28,7 +37,11 @@
         </div>
         <div class="mb-3">
             <label for="scara" class="form-label">Scara</label>
-            <input required type="text" name="scara" class="form-control" id="scara">
+            <select required name="scara" class="form-select" id="scara">
+                <?php foreach ($scari as &$scara): ?>
+                    <option value=<?php echo $scara['id'] ?>><?php echo $scara['denumire'] ?></option>
+                <?php endforeach; ?>
+            </select>
         </div>
         <button type="submit" class="btn btn-primary">Trimite</button>
     </form>

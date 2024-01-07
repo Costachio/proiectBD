@@ -8,11 +8,10 @@ $sql = "SELECT id, numar, etaj, numar_persoane, suprafata, id_scara FROM apartam
 $query = $connection->prepare($sql);
 $query->execute(['id' => $id]);
 $apartament = $query->fetch();
-$scara = $connection
-    ->query("SELECT denumire FROM scari WHERE id = " . $apartament['id_scara'])
-    ->fetchColumn();
 
-$apartament['scara'] = $scara;
+$scari= $connection
+    ->query("SELECT id, denumire FROM scari ")
+    ->fetchAll();
 
 ?>
 <!DOCTYPE html>
@@ -44,7 +43,13 @@ $apartament['scara'] = $scara;
         </div>
         <div class="mb-3">
             <label for="apartament" class="form-label">Scara</label>
-            <input required type="text" name="scara" class="form-control" value="<?php echo $apartament['scara']?>" id="scara">
+            <select required name="scara" class="form-select" id="scara">
+                <?php foreach ($scari as &$scara): ?>
+                    <option value=<?php echo $scara['id']?> " <?php echo ($scara['id'] === $apartament['id_scara']) ? 'selected' : ''; ?> >
+                        <?php echo $scara['denumire']?>
+                    </option>
+                <?php endforeach; ?>
+            </select>
         </div>
         <input type="hidden" name="id" value="<?php echo $id ?>">
         <button type="submit" class="btn btn-primary">Trimite</button>

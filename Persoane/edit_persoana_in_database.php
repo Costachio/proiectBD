@@ -36,7 +36,7 @@ try {
         ]);
 
         $connection->commit();
-        header("Location: /index.php");
+        header("Location: /Persoane/persoane_page.php");
     } else {
 
         echo "Error: Record not found in the database.";

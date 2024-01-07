@@ -25,7 +25,7 @@ try {
     ]);
 
     $connection->commit();
-    header("Location: /index.php");
+    header("Location: /Apartamente/apartamente_page.php");
 
 } catch (PDOException $e) {
 

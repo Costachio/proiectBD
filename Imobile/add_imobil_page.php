@@ -1,4 +1,12 @@
+<?php
 
+require_once "../connect.php";
+
+$connection = getConnection();
+$asociatii = $connection
+    ->query("SELECT id, denumire FROM asociatii ")
+    ->fetchAll();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -20,15 +28,19 @@
         </div>
         <div class="mb-3">
             <label for="latitudine" class="form-label">Latitudine</label>
-            <input required type="text" name="latitudine" class="form-control" id="latitudine">
+            <input required type="number" name="latitudine" class="form-control" id="latitudine" step="0.0000001">
         </div>
         <div class="mb-3">
             <label for="longitudine" class="form-label">Longitudine</label>
-            <input required type="text" name="longitudine" class="form-control" id="longitudine">
+            <input required type="number" name="longitudine" class="form-control" id="longitudine" step="0.0000001">
         </div>
         <div class="mb-3">
             <label for="asociatie" class="form-label">Asociatie</label>
-            <input required type="text" name="asociatie" class="form-control" id="asociatie">
+            <select required name="asociatie" class="form-select" id="asociatie">
+                <?php foreach ($asociatii as &$asociatie): ?>
+                    <option value=<?php echo $asociatie['id']?>><?php echo $asociatie['denumire']?></option>
+                <?php endforeach; ?>
+            </select>
         </div>
 
         <button type="submit" class="btn btn-primary">Trimite</button>

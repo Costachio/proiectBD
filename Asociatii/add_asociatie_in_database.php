@@ -11,10 +11,11 @@ $data_infiintare = $_POST['data_infiintare'];
 $cont_bancar = $_POST['cont_bancar'];
 $banca = $_POST['banca'];
 
-$connection  = getConnection();
+$connection = getConnection();
 $connection->beginTransaction();
 try {
-    $sql_asociatii = "INSERT into asociatii (denumire, cod_fiscal, data_infiintare, id_administrator, id_presedinte, id_contabil) VALUES (:denumire, :cod_fiscal, :data_infiintare, :id_administrator, :id_presedinte, :id_contabil)";
+    $sql_asociatii = "INSERT into asociatii (denumire, cod_fiscal, data_infiintare, id_administrator, id_presedinte, id_contabil) 
+                      VALUES (:denumire, :cod_fiscal, :data_infiintare, :id_administrator, :id_presedinte, :id_contabil)";
     $query = $connection->prepare($sql_asociatii);
     $query->execute([
         'denumire' => $denumire,

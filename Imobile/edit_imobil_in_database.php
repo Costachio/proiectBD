@@ -28,7 +28,7 @@ try {
     ]);
 
     $connection->commit();
-    header("Location: /index.php");
+    header("Location: /Imobile/imobile_page.php");
 
 } catch (PDOException $e) {
 

@@ -2,8 +2,8 @@
 require_once "../connect.php";
 
 $connection = getConnection();
-$nume_persoane = $connection
-    ->query("SELECT CONCAT(nume, ' ', prenume) AS Nume FROM persoane " )
+$persoane = $connection
+    ->query("SELECT id, nume, prenume FROM persoane " )
     ->fetchAll();
 ?>
 <!DOCTYPE html>
@@ -11,8 +11,20 @@ $nume_persoane = $connection
 <head>
     <title>Adauga asociatie</title>
     <!-- CSS only -->
-    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+    <!-- Bootstrap-datepicker CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/css/bootstrap-datepicker.min.css">
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+    <!-- Bootstrap JS and Popper.js -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY4NlHrkgIBhElM5S4MqE4p1ckKJg5K3S+gUt" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap-datepicker JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap-datepicker@1.9.0/dist/js/bootstrap-datepicker.min.js"></script>
+
 </head>
 <body>
 <div class="container">
@@ -28,24 +40,30 @@ $nume_persoane = $connection
         <div class="mb-3">
             <label for="administrator" class="form-label">Nume administrator</label>
             <select required name="administrator" class="form-select" id="administrator">
-                <?php foreach ($nume_persoane as &$nume_persoana): ?>
-                    <option value=<?php echo $nume_persoana['Nume']?>><?php echo $nume_persoana['Nume']?></option>
+                <?php foreach ($persoane as &$persoana): ?>
+                    <option value=<?php echo $persoana['id']?>>
+                        <?php echo $persoana['nume'] . ' ' . $persoana['prenume'] ?>
+                    </option>
                 <?php endforeach; ?>
             </select>
         </div>
         <div class="mb-3">
             <label for="presedinte" class="form-label">Nume presedinte</label>
             <select required name="presedinte" class="form-select" id="presedinte">
-                <?php foreach ($nume_persoane as &$nume_persoana): ?>
-                    <option value=<?php echo $nume_persoana['Nume']?>><?php echo $nume_persoana['Nume']?></option>
+                <?php foreach ($persoane as &$persoana): ?>
+                    <option value=<?php echo $persoana['id']?>>
+                        <?php echo $persoana['nume'] . ' ' . $persoana['prenume'] ?>
+                    </option>
                 <?php endforeach; ?>
             </select>
         </div>
         <div class="mb-3">
             <label for="contabil" class="form-label">Nume contabil</label>
             <select required name="contabil" class="form-select" id="contabil">
-                <?php foreach ($nume_persoane as &$nume_persoana): ?>
-                    <option value=<?php echo $nume_persoana['Nume']?>><?php echo $nume_persoana['Nume']?></option>
+                <?php foreach ($persoane as &$persoana): ?>
+                    <option value=<?php echo $persoana['id']?>>
+                        <?php echo $persoana['nume'] . ' ' . $persoana['prenume'] ?>
+                    </option>
                 <?php endforeach; ?>
             </select>
         </div>
@@ -54,8 +72,8 @@ $nume_persoane = $connection
             <input required type="text" name="cod_fiscal" class="form-control" id="cod_fiscal">
         </div>
         <div class="mb-3">
-            <label for="data_infiintare" class="form-label">Data infiintare ( exemplu format: 2023-03-01 )</label>
-            <input required type="text" name="data_infiintare" class="form-control" id="data_infiintare">
+            <label for="data_infiintare" class="form-label">Data infiintare</label>
+            <input required type="text" name="data_infiintare" class="form-control datepicker" id="data_infiintare">
         </div>
         <div class="mb-3">
             <label for="cont_bancar" class="form-label">Cont bancar</label>
@@ -68,5 +86,16 @@ $nume_persoane = $connection
         <button type="submit" class="btn btn-primary">Trimite</button>
     </form>
 </div>
+
+
+<script>
+    $(document).ready(function () {
+        // Initialize Bootstrap-datepicker
+        $('.datepicker').datepicker({
+            format: 'yyyy-mm-dd',
+            autoclose: true
+        });
+    });
+</script>
 </body>
 </html>

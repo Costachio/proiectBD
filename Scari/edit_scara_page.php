@@ -7,11 +7,11 @@ $sql = "SELECT id, denumire, numar_etaje, numar_apartamente, id_imobil FROM scar
 $query =  $connection->prepare($sql);
 $query->execute(['id' => $id]);
 $scara = $query->fetch();
-$imobil = $connection
-    ->query("SELECT denumire FROM imobile WHERE id = " . $scara['id_imobil'])
-    ->fetchColumn();
 
-$scara['imobil'] = $imobil;
+
+$imobile = $connection
+    ->query("SELECT id, denumire FROM imobile ")
+    ->fetchAll();
 ?>
 
 <!DOCTYPE html>
@@ -39,7 +39,12 @@ $scara['imobil'] = $imobil;
         </div>
         <div class="mb-3">
             <label for="scara" class="form-label">Imobil</label>
-            <input required type="text" name="imobil" class="form-control" value="<?php echo $scara['imobil']?>" id="imobil">
+            <select required name="imobil" class="form-select" id="imobil">
+                <?php foreach ($imobile as &$imobil): ?>
+                    <option value=<?php echo $imobil['id']?> <?php echo ($imobil['id'] === $scara['id_imobil']) ? 'selected' : ''; ?>>
+                        <?php echo $imobil['denumire']?></option>
+                <?php endforeach; ?>
+            </select>
         </div>
 
         <input type="hidden" name="id" value="<?php echo $id ?>">

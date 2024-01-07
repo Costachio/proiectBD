@@ -1,4 +1,12 @@
+<?php
 
+require_once "../connect.php";
+
+$connection = getConnection();
+$imobile = $connection
+    ->query("SELECT id, denumire FROM imobile ")
+    ->fetchAll();
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -24,7 +32,11 @@
         </div>
         <div class="mb-3">
             <label for="imobil" class="form-label">Imobil</label>
-            <input required type="text" name="imobil" class="form-control" id="imobil">
+            <select required name="imobil" class="form-select" id="imobil">
+                <?php foreach ($imobile as &$imobil): ?>
+                    <option value=<?php echo $imobil['id']?>><?php echo $imobil['denumire']?></option>
+                <?php endforeach; ?>
+            </select>
         </div>
         <button type="submit" class="btn btn-primary">Trimite</button>
     </form>

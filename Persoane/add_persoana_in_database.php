@@ -24,7 +24,7 @@ try {
         'telefon' => $telefon
     ]);
     $connection->commit();
-    header("Location: /index.php");
+    header("Location: /Persoane/persoane_page.php");
 
 } catch (PDOException $e) {
 

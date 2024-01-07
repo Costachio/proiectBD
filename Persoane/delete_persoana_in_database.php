@@ -21,7 +21,7 @@ try {
         $query_delete_persoane->execute(['id' => $id]);
 
         $connection->commit();
-        header("Location: /index.php");
+        header("Location: /Persoane/persoane_page.php");
     } else {
 
         echo "Error: Record not found in the database.";
